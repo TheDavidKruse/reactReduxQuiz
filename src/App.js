@@ -1,20 +1,42 @@
 import React, { Component } from 'react';
-import { Route, Switch, withRouter, Link } from 'react-router-dom'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 
 import './App.css';
+import Home from './pages/home';
+import { getPosts } from './redux/actions/postAction';
+import { getAuthors } from './redux/actions/authorAction';
+import { getComments } from './redux/actions/commentAction';
 
 class App extends Component {
+
+  componentDidMount(){
+    this.props.getPosts();
+    this.props.getAuthors();
+    this.props.getComments();
+  }
 
   render() {
     return (
       <div className="App">
-
+        <Switch>
+          <Route exact path="/" component={Home}/>
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  getPosts: bindActionCreators(getPosts, dispatch),
+  getAuthors: bindActionCreators(getAuthors, dispatch),
+  getComments: bindActionCreators(getComments, dispatch)
+})
+
+const mapStateToProps = (state) => ({})
+
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

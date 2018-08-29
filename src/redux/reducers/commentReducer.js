@@ -3,17 +3,17 @@ const initialState = [];
 
 export default (state = initialState, action) => {
   switch(action.type){
-    case 'FETCH_POSTS_PENDING':
+    case 'FETCH_COMMENTS_PENDING':
       return state
-    case 'FETCH_POSTS_FULFILLED':
+    case 'FETCH_COMMENTS_FULFILLED':
       return [...action.payload]
-    case 'FETCH_POSTS_REJECTED':
+    case 'FETCH_COMMENTS_REJECTED':
       return state
-      case 'ADD_POST_PENDING':
+      case 'ADD_COMMENT_PENDING':
         return state
-      case 'ADD_POST_FULFILLED':
+      case 'ADD_COMMENT_FULFILLED':
         return [action.payload.data, ...state]
-      case 'ADD_POST_REJECTED':
+      case 'ADD_COMMENT_REJECTED':
         return state
     default:
       return state
