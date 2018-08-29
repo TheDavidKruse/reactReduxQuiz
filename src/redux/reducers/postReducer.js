@@ -9,12 +9,9 @@ export default (state = initialState, action) => {
       return [...action.payload]
     case 'FETCH_POSTS_REJECTED':
       return state
-      case 'ADD_POST_PENDING':
-        return state
-      case 'ADD_POST_FULFILLED':
-        return [action.payload.data, ...state]
-      case 'ADD_POST_REJECTED':
-        return state
+    case 'ADD_POST':
+        return [action.payload, ...state]
+
     default:
       return state
   }

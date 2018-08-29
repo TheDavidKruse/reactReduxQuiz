@@ -11,18 +11,27 @@ class PostCardList extends Component {
   }
 
   mappedPosts(){
-    return this.props.posts.map(post => {
-      const [author] = this.props.authors.filter(({id}) => id === post.userId)
-      const comments = this.props.comments.filter(({postId}) => postId === post.id)
+    let { posts, comments, authors } = this.props
+    
+    if(posts.length > 0 && comments && authors.length > 0){
+      return this.props.posts.map(post => {
+        const [author] = this.props.authors.filter(({id}) => id === post.userId)
+        
+        const comments = this.props.comments.filter(({postId}) => postId === post.id)
+  
+        return (
+          <PostCard key={post.id} author={author} comments={comments} post={post}/>
+        )
+      })
+    } else {
+      return null
+    }
 
-      return (
-        <PostCard key={post.id} author={author} comments={comments} post={post}/>
-      )
-    })
   }
+
   render () {
     return (
-      <Card.Group stackable>
+      <Card.Group stackable itemsPerRow={3}>
         {this.mappedPosts()}
       </Card.Group>
     )

@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 
 import './App.css';
 import Home from './pages/home';
+import NewPost from './pages/newPost'
+
+
 import { getPosts } from './redux/actions/postAction';
 import { getAuthors } from './redux/actions/authorAction';
 import { getComments } from './redux/actions/commentAction';
@@ -23,6 +26,11 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/post/new" component={NewPost}/>
+          {/* <Route exact path="/post/:id" component={}/>
+          <Route exact path="/author/:id" component={}/>
+          <Route component={}/> */}
+
         </Switch>
       </div>
     );
