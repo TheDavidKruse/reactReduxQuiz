@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 
 import './App.css';
 import Home from './pages/home';
-import NewPost from './pages/newPost'
+import NewPost from './pages/newPost';
+import PostDetail from './pages/postDetail';
+import Menu from './components/menu/menu';
 
 
 import { getPosts } from './redux/actions/postAction';
@@ -24,12 +26,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Menu/>
         <Switch>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/posts" render={() => <Redirect to="/"/>}/>
           <Route exact path="/post/new" component={NewPost}/>
-          {/* <Route exact path="/post/:id" component={}/>
-          <Route exact path="/author/:id" component={}/>
-          <Route component={}/> */}
+          <Route exact path="/post/:id" component={PostDetail}/>
+
 
         </Switch>
       </div>

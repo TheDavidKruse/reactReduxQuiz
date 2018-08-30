@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 
-import PostCard from './PostCard'
+import PostCard from './postCard'
 
 class PostCardList extends Component {
   constructor(){
@@ -31,7 +31,7 @@ class PostCardList extends Component {
 
   render () {
     return (
-      <Card.Group stackable itemsPerRow={3}>
+      <Card.Group style={{marginTop:'15px'}} stackable itemsPerRow={3}>
         {this.mappedPosts()}
       </Card.Group>
     )

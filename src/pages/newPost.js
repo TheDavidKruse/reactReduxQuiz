@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Form, Button, Container } from 'semantic-ui-react'
+import { Form, Container } from 'semantic-ui-react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import {addPost} from '../redux/actions/postAction';
 
@@ -15,7 +15,6 @@ class NewPost extends Component {
 
 
   submitPost = () => {
-    console.log("click")
     this.props.addPost(this.state)
   }
 

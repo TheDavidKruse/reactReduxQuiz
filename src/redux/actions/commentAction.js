@@ -1,6 +1,15 @@
+import axios from "axios"
 export const getComments = () => {
   return {
     type: 'FETCH_COMMENTS',
-    payload: fetch("https://jsonplaceholder.typicode.com/comments").then(data => data.json()).catch(err => console.log("getcomments err:", err))
+    payload: axios("https://jsonplaceholder.typicode.com/comments")
+  }
+}
+
+export const addComment = (comment) => {
+  console.log("ASDGSD", comment)
+  return {
+    type: 'ADD_COMMENT',
+    payload: axios.post("https://jsonplaceholder.typicode.com/comments",comment)
   }
 }

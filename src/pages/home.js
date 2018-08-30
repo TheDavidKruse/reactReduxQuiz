@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostCardList from '../components/Posts/PostCardList';
+import PostCardList from '../components/Posts/postCardList';
 import { Container } from 'semantic-ui-react';
 
 
