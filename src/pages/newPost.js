@@ -39,8 +39,8 @@ class NewPost extends Component {
             <label>Description</label>
             <textarea name="body" onChange={this.handleChange}/>
           </Form.Field>
-          {title && body && title.length > 0 && body.length > 0? <Link className={"button ui blue"} to={{pathname:"/", state:this.state}} onClick={this.submitPost}>Submit</Link> : <Button color="blue" disabled>Please fill out form</Button>}
-          <Link to="/" className="button ui">Cancel</Link>
+          {title && body && title.length > 0 && body.length > 0? <Link className={"button ui blue"} to={{pathname:"/home", state:this.state}} onClick={this.submitPost}>Submit</Link> : <Button color="blue" disabled>Please fill out form</Button>}
+          <Link to="/home" className="button ui">Cancel</Link>
         </Form>
       </Container>
     )

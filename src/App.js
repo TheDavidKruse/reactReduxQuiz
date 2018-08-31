@@ -23,9 +23,6 @@ class App extends Component {
     this.props.getPosts();
     this.props.getAuthors();
     this.props.getComments();
-    // if(window.location.href.contains("/reactReduxQuiz")){
-    //   this.props.history.push("/")
-    // }
   }
 
   render() {
@@ -33,12 +30,12 @@ class App extends Component {
       <div className="App">
         <Menu/>
         <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/posts" render={() => <Redirect to="/"/>}/>
+          <Route exact path="/home" component={Home}/>
+          <Route exact path="/posts" render={() => <Redirect to="/home"/>}/>
           <Route exact path="/post/new" component={NewPost}/>
           <Route exact path="/post/:id" component={PostDetail}/>
           <Route exact path="/author/:name" component={Author}/>
-          <Route exact path="/reactReduxQuiz" render={() => <Redirect to="/"/>}/>
+          <Route exact path="/reactReduxQuiz" render={() => <Redirect to="/home"/>}/>
           <Route component={fourOhfour}/>
         </Switch>
       </div>

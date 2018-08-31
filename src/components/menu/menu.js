@@ -13,7 +13,7 @@ export default class MenuExamplePointing extends Component {
     return (
       <div>
         <Menu>
-          <Link to="/" onClick={() => this.handleItemClick("home")}>
+          <Link to="/home" onClick={() => this.handleItemClick("home")}>
             <Menu.Item name='Home' active={activeItem === 'home'}  />
           </Link>
           <Link to="/post/new" onClick={() => this.handleItemClick("newpost")}>
