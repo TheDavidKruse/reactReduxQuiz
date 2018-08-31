@@ -36,7 +36,6 @@ class App extends Component {
           <Route exact path="/post/new" component={NewPost}/>
           <Route exact path="/post/:id" component={PostDetail}/>
           <Route exact path="/author/:name" component={Author}/>
-          <Route exact path="/reactReduxQuiz" render={() => <Redirect to="/home"/>}/>
           <Route component={fourOhfour}/>
         </Switch>
       </div>
