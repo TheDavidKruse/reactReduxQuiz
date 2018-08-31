@@ -8,12 +8,6 @@ import NewComment from './newComment'
 
 class CommentList extends Component {
 
-  constructor(){
-    super()
-
-    this.hideNewComment = this.hideNewComment.bind(this)
-  }
-
   state={
     showAdd: false
   }
@@ -22,7 +16,7 @@ class CommentList extends Component {
     return this.props.comments.map(comment => <CommentComp key={comment.id} comment={comment}/>)
   }
 
-  hideNewComment(){
+  hideNewComment = () =>{
     this.setState({showAdd:false})
   }
 

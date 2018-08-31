@@ -1,5 +1,6 @@
-const initialState = true;
+// Again this idea was to put a nice loading screen for things that didnt load correctly
 
+const initialState = true;
 
 export default (state = initialState, action) => {
   switch(action.type){

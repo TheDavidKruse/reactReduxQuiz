@@ -3,7 +3,6 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 import { Loader } from "semantic-ui-react";
 
 const MyMapComponent = withScriptjs(withGoogleMap((props) =>{
-  console.log("map",props)
   if(props.coordinates){
     let { lat, lng } = props.coordinates
     lat = parseFloat(lat, 10);

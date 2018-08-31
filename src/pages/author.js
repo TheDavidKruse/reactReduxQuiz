@@ -2,22 +2,18 @@ import React, { Component } from 'react'
 import { Container, Grid, Segment, Image, Message } from 'semantic-ui-react';
 import { connect } from 'react-redux'
 import MyMapComponent from '../components/author/googleMap'
-import NotLikeThis from '../img/theHiddenWeapon.mp4'
 
 class Author extends Component {
 
   state={}
 
   initAuthor(authors = undefined){
-    console.log("AUTHOR PROPS",authors, this.props, this.state)
     const { location, match } = this.props;
     if(!this.state.author){
       if(location.state){
-        console.log("setting state from location", location.state)
         this.setState({author: location.state.author})
       } else {
         if(authors && authors.length > 0){
-          console.log("inside else init author", this.props)
           let author = authors.find(a => a.name.toLowerCase().replace(/\s/ig, "") === match.params.name)
           this.setState({author})
         }
@@ -31,14 +27,12 @@ class Author extends Component {
 
   componentWillReceiveProps(nextProps){
 
-    console.log(nextProps.authors)
-    console.log("CWRP")
     this.initAuthor(nextProps.authors)
   }
 
   render () {
     if(this.props.match.params.name === "anonymous"){
-      return  <video src={NotLikeThis} autoPlay={true} style={{width:'100vw', height:'100vh'}}/>
+      return  <iframe width="100%" height="100%" title="mySecretWeapon" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&controls=0&showinfo=0&autoplay=1" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
     }
 
     if(this.state.author){

@@ -15,6 +15,7 @@ import { getPosts } from './redux/actions/postAction';
 import { getAuthors } from './redux/actions/authorAction';
 import { getComments } from './redux/actions/commentAction';
 import Author from './pages/author';
+import fourOhfour from './pages/404';
 
 class App extends Component {
 
@@ -34,8 +35,7 @@ class App extends Component {
           <Route exact path="/post/new" component={NewPost}/>
           <Route exact path="/post/:id" component={PostDetail}/>
           <Route exact path="/author/:name" component={Author}/>
-
-
+          <Route component={fourOhfour}/>
         </Switch>
       </div>
     );

@@ -3,9 +3,7 @@ import { Grid, Loader, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
 const PostContent = (props) => {
-  console.log(props)
   const { post, author } = props
-  console.log("AUTHOR", author)
 
 
   let link;
