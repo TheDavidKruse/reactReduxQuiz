@@ -11,7 +11,8 @@ class Author extends Component {
     const { location, match } = this.props;
     if(!this.state.author){
       if(location.state){
-        this.setState({author: location.state.author})
+        console.log("location state", location.state)
+        this.setState({author: location.state})
       } else {
         if(authors && authors.length > 0){
           let author = authors.find(a => a.name.toLowerCase().replace(/\s/ig, "") === match.params.name)
@@ -31,6 +32,7 @@ class Author extends Component {
   }
 
   render () {
+    console.log(this.props.location.state)
     if(this.props.match.params.name === "anonymous"){
       return  <iframe width="100%" height="100%" title="mySecretWeapon" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&controls=0&showinfo=0&autoplay=1" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
     }

@@ -34,7 +34,7 @@ export default class PostCards extends Component {
         <Dimmer.Dimmable dimmed={active} dimmer={{active, content}} as={Image} onMouseEnter={this.handleShow} onMouseLeave={this.handleHide} src={"https://via.placeholder.com/250x250"}>
         </Dimmer.Dimmable>
         <Card.Content>
-          <Card.Header><Link to={{pathname:`/post/${post.id}`, state:{post, comments, author} }}>{title}</Link></Card.Header>
+          <Card.Header><Link to={{pathname:`/post/${post.id}`, state:{post, comments, author}}}>{title}</Link></Card.Header>
           <Card.Description>{description}</Card.Description>
         </Card.Content>
         <Card.Content extra>
