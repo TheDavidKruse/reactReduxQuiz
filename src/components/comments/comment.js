@@ -9,7 +9,7 @@ const CommentComp = (props) => {
     <Comment>
     <Comment.Avatar src={profile} />
     <Comment.Content>
-      <Comment.Author as='a'>{props.comment.email}</Comment.Author>
+      <Comment.Author>{props.comment.email}</Comment.Author>
       <Comment.Text><b>{props.comment.name}</b></Comment.Text>
       <Comment.Text>{props.comment.body}</Comment.Text>
     </Comment.Content>

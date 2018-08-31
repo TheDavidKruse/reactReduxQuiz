@@ -8,6 +8,12 @@ import NewComment from './newComment'
 
 class CommentList extends Component {
 
+  constructor(){
+    super()
+
+    this.hideNewComment = this.hideNewComment.bind(this)
+  }
+
   state={
     showAdd: false
   }
@@ -15,6 +21,11 @@ class CommentList extends Component {
   renderComments(){
     return this.props.comments.map(comment => <CommentComp key={comment.id} comment={comment}/>)
   }
+
+  hideNewComment(){
+    this.setState({showAdd:false})
+  }
+
   render () {
     return (
       <Comment.Group>
@@ -22,7 +33,7 @@ class CommentList extends Component {
           Comments
         </Header>
         {!this.state.showAdd? <Button content='Add Reply' onClick={() => this.setState({showAdd: true})} labelPosition='left' icon='edit' primary />: null}
-        {this.state.showAdd? <NewComment postId={this.props.postId}/> : null}
+        {this.state.showAdd? <NewComment hideNew={this.hideNewComment} postId={this.props.postId}/> : null}
         {this.props.comments ? this.renderComments(): <Loader/>}
 
       </Comment.Group>

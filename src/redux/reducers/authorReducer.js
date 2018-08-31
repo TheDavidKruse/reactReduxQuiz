@@ -6,7 +6,7 @@ export default (state = initialState, action) => {
       return state;
 
     case "FETCH_AUTHORS_FULFILLED":
-      return [...action.payload];
+      return [...action.payload.data];
 
     case "FETCH_AUTHORS_REJECTED":
       return state;

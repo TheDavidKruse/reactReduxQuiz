@@ -8,8 +8,15 @@ import { bindActionCreators } from 'redux';
 import { addComment } from '../../redux/actions/commentAction'
 
 class NewComment extends Component {
+
+  constructor(){
+    super()
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
   state={
-    title:'',
+    name:'',
     body:''
   }
 
@@ -21,20 +28,35 @@ class NewComment extends Component {
       email: 'Anonymous'
     })
   }
+
+  handleChange(e){
+    const { name, value } = e.target
+    this.setState({[name]: value})
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.addComment(this.state)
+    this.setState({
+      name:'',
+      body:''
+    })
+    this.props.hideNew()
+  }
+
   render () {
-    console.log("NEWCOMMENT",this.state, this.props)
     return (
       <Segment>
         <Form>
           <Form.Field>
           <label>Title</label>
-            <input type="text" onChange={(e) => this.setState({title:e.target.value})} value={this.state.title}/>
+            <input type="text" name="name" onChange={this.handleChange} value={this.state.name}/>
           </Form.Field>
           <Form.Field>
           <label>Body</label>
-            <textarea onChange={(e) => this.setState({body:e.target.value})} value={this.state.body}></textarea>
+            <textarea name="body" onChange={this.handleChange} value={this.state.body}></textarea>
           </Form.Field>
-          <Button disabled={this.state.title.length > 0 && this.state.body.length > 0?false : true} onClick={this.state.title.length > 0 && this.state.body.length > 0? () => this.props.addComment(this.state) : null}>Submit</Button> <Button onClick={() => this.setState({title:'', body:''})}>Cancel</Button>
+          <Button disabled={this.state.name.length > 0 && this.state.body.length > 0?false : true} onClick={this.state.name.length > 0 && this.state.body.length > 0? this.handleSubmit  : null}>Submit</Button> <Button onClick={this.handleSubmit}>Cancel</Button>
         </Form>
       </Segment>
     )

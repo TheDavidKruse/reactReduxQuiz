@@ -38,7 +38,7 @@ export default class PostCards extends Component {
           <Card.Description>{description}</Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <p>Posted by: <Link to={{pathname:`/author/${author.id}`}}>{authorName}</Link></p>
+          <p>Posted by: <Link to={{pathname:`/author/${author.name.toLowerCase().replace(/\s/ig, "")}`, state:author}}>{authorName}</Link></p>
           <p>{commentLength} comments</p>
         </Card.Content>
       </Card>
