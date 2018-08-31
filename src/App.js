@@ -30,6 +30,7 @@ class App extends Component {
       <div className="App">
         <Menu/>
         <Switch>
+          <Route exact path="/" render={() => <Redirect to="/home"/>}/>
           <Route exact path="/home" component={Home}/>
           <Route exact path="/posts" render={() => <Redirect to="/home"/>}/>
           <Route exact path="/post/new" component={NewPost}/>

@@ -10,20 +10,22 @@ class Author extends Component {
   initAuthor(authors = undefined){
     const { location, match } = this.props;
     if(!this.state.author){
-      if(location.state){
-        console.log("location state", location.state)
-        this.setState({author: location.state})
+      if(location.state !== undefined && location.state.author !== undefined){
+        console.log("location state", location.state.author)
+        this.setState({author: location.state.author})
       } else {
         if(authors && authors.length > 0){
           let author = authors.find(a => a.name.toLowerCase().replace(/\s/ig, "") === match.params.name)
+          console.log("aith & auth.length",author)
           this.setState({author})
+          
         }
       }
     }
   }
 
   componentDidMount(){
-    this.initAuthor()
+    this.initAuthor(this.props.authors)
   }
 
   componentWillReceiveProps(nextProps){
@@ -39,6 +41,7 @@ class Author extends Component {
 
     if(this.state.author){
         const {name, username, email, address, phone, website, company } = this.state.author
+        console.log("AUTHOR STATE",this.state.author)
         return (
           <Container>
             <Grid style={{marginTop:'15px', height:'100vh', maxHeight:'600px'}} stackable>
