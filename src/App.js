@@ -23,6 +23,9 @@ class App extends Component {
     this.props.getPosts();
     this.props.getAuthors();
     this.props.getComments();
+    if(window.location.href.contains("/reactReduxQuiz")){
+      this.props.history.push("/")
+    }
   }
 
   render() {
